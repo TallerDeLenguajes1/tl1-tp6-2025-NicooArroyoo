@@ -32,6 +32,7 @@ else
 
 
 //Ejercicio 2 y 3
+
 float solicitarNumero()
 {
     string numString = Console.ReadLine();
