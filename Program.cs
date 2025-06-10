@@ -157,4 +157,53 @@ else
 
 // Console.WriteLine("Saliendo...");
 
+
+
+
 //Ejercicio 4
+
+string cadena, cadena2;
+
+Console.Write("Ingrese una cadena: ");
+cadena = Console.ReadLine();
+
+Console.WriteLine("Longitud de la cadena: " + cadena.Length);
+
+Console.Write("Ingrese una segunda cadena: ");
+cadena2 = Console.ReadLine();
+
+Console.WriteLine("Cadena 1 + Cadena 2 = " + cadena + cadena2);
+
+Console.WriteLine("Substring de cadena1: " + cadena.Substring(2, 2));
+
+foreach (var caracter in cadena)
+{
+    Console.WriteLine(caracter);
+}
+
+if (cadena.ToLower().Contains("hola"))
+{
+    Console.WriteLine("\"hola\" se encuentra dentro de la cadena: " + cadena);
+}
+else
+{
+    Console.WriteLine("\"hola\" no se encuentra dentro de la cadena: " + cadena);
+}
+
+Console.WriteLine("Cadena en mayusculas: " + cadena.ToUpper());
+Console.WriteLine("Cadena en minusculas: " + cadena.ToLower());
+
+Console.Write("Ingrese el separador: ");
+char separador = Console.ReadLine()[0];
+
+Console.Write("Ingrese la cadena a separar: ");
+string cadena3 = Console.ReadLine();
+
+
+
+Console.Write("[");
+foreach (var cad in cadena3.Split(separador))
+{
+    Console.Write($" {cad} ");
+}
+Console.Write("]");
