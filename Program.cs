@@ -33,7 +33,6 @@ else
 
 //Ejercicio 2 y 3
 
-
 float solicitarNumero()
 {
     string numString = Console.ReadLine();
@@ -47,42 +46,71 @@ float solicitarNumero()
     return num;
 }
 
-Console.Write("Ingrese un numero: ");
-float num = solicitarNumero();
-
-Console.WriteLine("|" + num + "| = " + Math.Abs(num));
-Console.WriteLine(num + "^2 = " + num * num);
-if (num >= 0)
+float suma(float num1, float num2)
 {
-    Console.WriteLine("Raiz cuadrada de " + num + " = " + Math.Sqrt(num));
+    return num1 + num2;
 }
-else
+float resta(float num1, float num2)
 {
-   Console.WriteLine("No podemos calcular raiz cuadrada de un numero negativo"); 
+    return num1 - num2;
 }
-Console.WriteLine("sen(" + num + ") = " + Math.Sin(num));
-Console.WriteLine("cos(" + num + ") = " + Math.Cos(num));
-Console.WriteLine("Parte entera de " + num + " = " + Math.Truncate(num));
-
-Console.WriteLine("=====================");
-
-Console.Write("Ingrese el numero 1: ");
-float num1 = solicitarNumero();
-Console.Write("Ingrese el numero 2: ");
-float num2 = solicitarNumero();
-
-if (num1 > num2)
+float multiplicacion(float num1, float num2)
 {
-    Console.WriteLine("Maximo: " + num1);
-    Console.WriteLine("Minimo: " + num2);
+    return num1 * num2;
 }
-else if (num2 > num1)
+float division(float num1, float num2)
 {
-    Console.WriteLine("Maximo: " + num2);
-    Console.WriteLine("Minimo: " + num1);
-}
-else
-{
-    Console.WriteLine("Los dos numeros son iguales");
+    return num1 / num2;
 }
 
+string opcionString;
+int opcionInt = 0;
+float num1, num2;
+
+while (opcionInt != 5)
+{
+    Console.WriteLine("\n================================\n");
+    Console.WriteLine("Seleccione una opcion:");
+    Console.WriteLine("1. Sumar");
+    Console.WriteLine("2. Restar");
+    Console.WriteLine("3. Multiplicar");
+    Console.WriteLine("4. Dividir");
+    Console.WriteLine("5. Salir");
+
+    opcionString = Console.ReadLine();
+
+    bool opcionValida = int.TryParse(opcionString, out opcionInt);
+    Console.WriteLine("\n------------------------\n");
+    if (opcionValida && opcionInt > 0 && opcionInt < 5)
+    {
+        Console.WriteLine("Ingrese el primer numero:");
+        num1 = solicitarNumero();
+        Console.WriteLine("\nIngrese el segundo numero");
+        num2 = solicitarNumero();
+        Console.WriteLine("\n------------------------\n");
+        switch (opcionInt)
+        {
+            case 1:
+                Console.WriteLine(num1 + " + " + num2 + " = " + suma(num1, num2));
+                break;
+            case 2:
+                Console.WriteLine(num1 + " - " + num2 + " = " + resta(num1, num2));
+                break;
+            case 3:
+                Console.WriteLine(num1 + " * " + num2 + " = " + multiplicacion(num1, num2));
+                break;
+            case 4:
+                if (num2 != 0)
+                {
+                    Console.WriteLine(num1 + " / " + num2 + " = " + division(num1, num2));
+                }
+                else
+                {
+                    Console.WriteLine("Error, division en cero");
+                }
+                break;
+        }   
+    }
+}
+
+Console.WriteLine("Saliendo...");
